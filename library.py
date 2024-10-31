@@ -1,5 +1,8 @@
+import logging
 from abc import ABC, abstractmethod
 
+# Set up logging configuration
+logging.basicConfig(level=logging.INFO)
 
 class Book:
     def __init__(self, title, author, year):
@@ -43,7 +46,7 @@ class Library(LibraryInterface):
 
     def show_books(self):
         for book in self.books:
-            print(
+            logging.info(
                 f"Title: {book.get_title()}, Author: {book.get_author()}, Year: {book.get_year()}"
             )
 
@@ -84,7 +87,7 @@ def main():
             case "exit":
                 break
             case _:
-                print("Invalid command. Please try again.")
+                logging.info("Invalid command. Please try again.")
 
 
 if __name__ == "__main__":
